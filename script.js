@@ -1,5 +1,5 @@
 // GLOBAL
-let gridSize = 32;
+let gridSize = 64;
 let color = "#000000"
 
 // 
@@ -14,6 +14,7 @@ for(i=0; i<gridSize**2; i++){
 grid.append(frag);
 
 grid.addEventListener('mouseover',(event)=>{
+    event.preventDefault();
     if(!event.target.classList.contains('grid-square'))
         return;
 
@@ -21,7 +22,13 @@ grid.addEventListener('mouseover',(event)=>{
         return;
 
     console.log(event.buttons)
-    event.target.style.backgroundColor = color; 
+    event.target.style.backgroundColor = color;
+})
+
+grid.addEventListener('mousedown', (event)=>{
+    if(!event.target.classList.contains('grid-square'))
+        return;
+    event.preventDefault();
 })
 
 colorPicker = document.getElementById('color-picker');
