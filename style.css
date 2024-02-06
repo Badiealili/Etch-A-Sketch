@@ -70,12 +70,6 @@ main h1 {
   border: blue 1px solid;
 }
 
-.grid-square {
-  width: 30px;
-  height: 30px;
-  border: red 1px solid;
-}
-
 #controls {
   display: flex;
 }

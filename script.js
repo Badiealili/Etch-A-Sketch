@@ -1,8 +1,31 @@
-let n = 16;
+// GLOBAL
+let gridSize = 32;
+let color = "#000000"
+
+// 
 let frag = new DocumentFragment();
-for(i=0; i<n*n; i++){
+for(i=0; i<gridSize**2; i++){
     let div = document.createElement('div');
     div.classList.add('grid-square');
+    div.style.width = 480 / gridSize + 'px';
+    div.style.height = 480 / gridSize + 'px';
     frag.append(div);
 }
 grid.append(frag);
+
+grid.addEventListener('mouseover',(event)=>{
+    if(!event.target.classList.contains('grid-square'))
+        return;
+
+    if(event.buttons !== 1)
+        return;
+
+    console.log(event.buttons)
+    event.target.style.backgroundColor = color; 
+})
+
+colorPicker = document.getElementById('color-picker');
+
+colorPicker.addEventListener('change', (event)=>{
+    color = event.target.value;
+})
