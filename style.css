@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
 /* JOSH COMEAU CSS RESET. SOURCE: https://www.joshwcomeau.com/css/custom-css-reset/ */
 *,
 *::before,
@@ -51,15 +53,67 @@ h6 {
   isolation: isolate;
 }
 
+/* Remove default border and outline styles */
+input[type="color"] {
+  border: none;
+  outline: none;
+}
+
+/* Customize appearance and add background color */
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0; /* Remove default padding */
+}
+
+input[type="color"]::-webkit-color-swatch {
+  border: none; /* Remove default border */
+}
+
+/* Ensure uniform color for the input */
+input[type="color"]::-webkit-color-swatch-wrapper,
+input[type="color"]::-webkit-color-swatch {
+  border-radius: 0; /* Remove default border-radius to make it uniform */
+}
+
+/* Customize appearance in Firefox */
+input[type="color"] {
+  -moz-appearance: none; /* Remove Firefox default styles */
+}
+
+/* Ensure uniform color in Firefox */
+input[type="color"]::-moz-color-swatch {
+  border: none;
+  border-radius: 0;
+}
+
+/* Customize appearance in Edge and IE */
+input[type="color"] {
+  appearance: none; /* Remove Edge and IE default styles */
+}
+
+/* Ensure uniform color in Edge and IE */
+input[type="color"]::-ms-color-swatch {
+  border: none;
+  border-radius: 0;
+}
+
+/**************************************************************************/
+
 body {
+  font-family: monospace;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #e1e2e6;
 }
 
+main {
+  position: relative;
+}
+
 main h1 {
+  font-family: "Shantell Sans";
   text-align: center;
+  margin-bottom: 1em;
 }
 
 #grid {
@@ -67,25 +121,118 @@ main h1 {
   flex-wrap: wrap;
   width: 482px;
   height: 482px;
-  border: blue 1px solid;
+  border: black 1px solid;
 }
 
 #controls {
   display: flex;
+  margin-bottom: 1em;
+}
+
+#controls button {
+  font-weight: bold;
+  background: transparent;
+  border: black 1px solid;
+  border-radius: 8px;
+  transition: all 100ms ease-in-out;
+}
+
+#controls > :not(:last-child) {
+  margin-right: 8px;
+}
+
+#controls .selected {
+  background-color: black;
+  color: #e1e2e6;
+  transition: all 200ms ease-in-out;
 }
 
 #color-picker {
   display: flex;
+  align-items: center;
+}
+
+#color-picker input {
+  border-radius: 2em;
+  overflow: hidden;
 }
 
 #clear {
   margin-left: auto;
+  background-color: red !important;
+  color: #e1e2e6;
 }
 
 #size {
-  display: inline-block;
+  appearance: slider-vertical;
+  height: 400px;
+  color: black;
+}
+
+#size-container {
   position: absolute;
-  left: 100px;
-  top: 50%;
-  transform: translateY(-50%);
+  left: 0;
+  bottom: 0;
+  transform: translate(-100%, 0%);
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 2em;
+}
+
+#size-container label {
+    font-size: 1.5em;
+    font-weight: bold;
+    width: fit-content;
+    transform: rotate(-90deg);
+}
+
+/* ChatGpt + me */
+/* Styles for the range input */
+input[type="range"] {
+  /* Remove default styles */
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent; /* Set the background to transparent */
+  outline: none;
+}
+
+/* Styling the track (progress bar) */
+input[type="range"]::-webkit-slider-runnable-track {
+  background: black; /* Set the gradient color for the track */
+  border-radius: 9999px; /* Adjust the border-radius as needed */
+  border: none; /* Remove border */
+}
+
+/* Styling the thumb (slider handle) */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px; /* Adjust width as needed */
+  height: 20px; /* Adjust height as needed */
+  background: black; /* Set the color of the thumb */
+  border: 2px solid #555; /* Set the border color and width */
+  border-radius: 50%; /* Create a circular thumb */
+  cursor: pointer;
+}
+
+/* Additional styles for Mozilla Firefox */
+input[type="range"] {
+  /* Remove default styles */
+  -moz-appearance: none;
+}
+
+/* Styling the track in Firefox */
+input[type="range"]::-moz-range-track {
+  background: black; /* Set the gradient color for the track */
+  border-radius: 9999px; /* Adjust the border-radius as needed */
+  border: none; /* Remove border */
+}
+
+/* Styling the thumb in Firefox */
+input[type="range"]::-moz-range-thumb {
+  background: black; /* Set the color of the thumb */
+  border: 2px solid #555; /* Set the border color and width */
+  border-radius: 50%; /* Create a circular thumb */
+  cursor: pointer;
 }

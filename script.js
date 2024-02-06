@@ -51,16 +51,22 @@ function clearGrid() {
 clear.addEventListener("click", clearGrid);
 
 // Resize grid
+let sizeContainerLabel = document.querySelector('#size-container > label');
 size.addEventListener("change", (event) => {
   gridSize = event.target.value;
+  sizeContainerLabel.textContent = `${gridSize}*${gridSize}`
   initializeGrid();
 });
 
 // Toggle selection between pen and eraser
 eraser.addEventListener('click', ()=>{
+    pen.classList.remove('selected');
     selected = "Eraser";
+    eraser.classList.add('selected');
 });
 
 pen.addEventListener('click', ()=>{
+    eraser.classList.remove('selected');
     selected = "Pen";
+    pen.classList.add('selected');
 })
