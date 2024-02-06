@@ -5,7 +5,7 @@ Classic Etch and Sketch game. Includes the following:
 - Color picker to change the color of drawing
 - Eraser
 - Reset button
-- Change size button
+- Change size range input
 
 Technologies:
 - HTML
