@@ -32,6 +32,10 @@ select {
   border: none;
 }
 
+button {
+  cursor: pointer;
+}
+
 p,
 h1,
 h2,
@@ -51,18 +55,35 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #e1e2e6;
+}
+
+main h1 {
+  text-align: center;
 }
 
 #grid {
   display: flex;
   flex-wrap: wrap;
-  width: 164px;
-  height: 164px;
-  border: blue 2px solid;
+  width: 482px;
+  height: 482px;
+  border: blue 1px solid;
 }
 
 .grid-square {
-  width: 10px;
-  height: 10px;
-  border: red 2px solid;
+  width: 30px;
+  height: 30px;
+  border: red 1px solid;
+}
+
+#controls {
+  display: flex;
+}
+
+#color-picker {
+  display: flex;
+}
+
+#clear {
+  margin-left: auto;
 }
