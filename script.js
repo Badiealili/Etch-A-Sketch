@@ -1,25 +1,29 @@
 // Global
-let gridSize = 64;
+let gridSize = 32;
 let color = "#000000"
 
 // Add grid squares to page
-let frag = new DocumentFragment();
-for(i=0; i<gridSize**2; i++){
-    let div = document.createElement('div');
-    div.classList.add('grid-square');
-    div.style.width = 480 / gridSize + 'px';
-    div.style.height = 480 / gridSize + 'px';
-    frag.append(div);
+function initializeGrid() {
+    grid.innerHTML = "";
+    let frag = new DocumentFragment();
+    for (i = 0; i < gridSize ** 2; i++) {
+        let div = document.createElement('div');
+        div.classList.add('grid-square');
+        div.style.width = 480 / gridSize + 'px';
+        div.style.height = 480 / gridSize + 'px';
+        frag.append(div);
+    }
+    grid.append(frag);
 }
-grid.append(frag);
+initializeGrid();
 
 // Color grid square
-grid.addEventListener('mouseover',(event)=>{
+grid.addEventListener('mouseover', (event) => {
     event.preventDefault();
-    if(!event.target.classList.contains('grid-square'))
+    if (!event.target.classList.contains('grid-square'))
         return;
 
-    if(event.buttons !== 1)
+    if (event.buttons !== 1)
         return;
 
     console.log(event.buttons)
@@ -27,24 +31,30 @@ grid.addEventListener('mouseover',(event)=>{
 })
 
 // Prevent mouse dragging colored divs
-grid.addEventListener('mousedown', (event)=>{
-    if(!event.target.classList.contains('grid-square'))
+grid.addEventListener('mousedown', (event) => {
+    if (!event.target.classList.contains('grid-square'))
         return;
     event.preventDefault();
 })
 
 // Change color
 colorPicker = document.getElementById('color-picker');
-colorPicker.addEventListener('change', (event)=>{
+colorPicker.addEventListener('change', (event) => {
     color = event.target.value;
 })
 
 // Clear grid
-function clearGrid(){
+function clearGrid() {
     let gridSquareList = grid.children;
-    for(gridSquare of gridSquareList){
+    for (gridSquare of gridSquareList) {
         gridSquare.style.backgroundColor = 'transparent';
     }
 }
 
 clear.addEventListener('click', clearGrid);
+
+// Resize grid
+size.addEventListener('change', (event)=>{
+    gridSize = event.target.value;
+    initializeGrid();
+})

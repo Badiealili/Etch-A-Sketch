@@ -81,3 +81,11 @@ main h1 {
 #clear {
   margin-left: auto;
 }
+
+#size {
+  display: inline-block;
+  position: absolute;
+  left: 100px;
+  top: 50%;
+  transform: translateY(-50%);
+}
